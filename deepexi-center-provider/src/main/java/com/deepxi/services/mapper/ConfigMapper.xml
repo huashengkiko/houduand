@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.deepxi.services.mapper.ConfigMapper">
+    <resultMap type="com.deepxi.services.domain.dto.ConfigDto" id="ConfigDtoResult">
+        <result property="id" column="id" />
+        <result property="projectNo" column="project_no" />
+        <result property="key" column="key" />
+        <result property="value" column="value" />
+        <result property="description" column="description" />
+        <result property="createBy" column="create_by" />
+        <result property="createTime" column="create_time" />
+        <result property="updateBy" column="update_by" />
+        <result property="updateTime" column="update_time" />
+        <result property="dr" column="dr" />
+    </resultMap>
+    <select id="findList" resultType="com.deepxi.services.domain.eo.Config">
+        SELECT * FROM config WHERE 1=1
+    </select>
+
+    <update id="deleteByIds">
+        UPDATE config set dr=1 where id in
+        <foreach collection="ids" index="index" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
+</mapper>

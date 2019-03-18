@@ -14,3 +14,7 @@ INSERT INTO product(id, name, price, tenant_id, created_by, updated_by, created_
 ('10', '榴莲', 990, null, null ,null, null, null, 0),
 ('11', '柚子', 291, null, null ,null, null, null, 0),
 ('12', '小番茄', 200, null, null ,null, null, null, 0);
+CREATE TABLE IF NOT EXISTS config(
+    id int  not null primary key,    project_no varchar(255)  ,    key varchar(255)  ,    value varchar(255)  ,    description varchar(255)  ,    create_by varchar(255)  ,    create_time datetime  ,    update_by varchar(255)  ,    update_time datetime  ,    dr tinyint  );
+CREATE TABLE IF NOT EXISTS ss(
+    id int  not null primary key,    created_by varchar(255) not null ,    created_at datetime not null ,    updated_by varchar(255) not null ,    updated_at datetime not null );
